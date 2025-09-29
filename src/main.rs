@@ -1,12 +1,21 @@
+use std::io;
+
+
 fn main() {
-   const USER_MAX_SCORE: u32 = 1_000_000;
-   println!("Info: {}", USER_MAX_SCORE);
+let mut num1 = String::new();
+let mut num2 = String::new();
 
-   let mut user_alex = (42, true, 1.86, 'R');
-   user_alex.2 = 46.0;
-    println!("Info: {}", user_alex.2);
+println!("Enter num1: ");
+io::stdin().read_line(&mut num1).expect("Fail to read information");
 
-    let mut nums: [i8; 6] = [4, 3, 7, 9, 1, 8];
-    nums[0] = 10; 
-    println!("Info: {}", nums[0]);
+println!("Enter num2: ");
+io::stdin().read_line(&mut num2).expect("Fail to read information");
+
+let data1: i16 = num1.trim().parse().expect("Please enter a valid number");
+let data2: u8 = num2.trim().parse().expect("Please enter a valid number");
+println!("Result 1: {}, result 2: {}", data1, data2);
+
+let mut res: i16 = data1 + data2 as i16;
+println!("Result: {}", res);
+
 }
